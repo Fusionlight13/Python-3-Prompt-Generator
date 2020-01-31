@@ -6,7 +6,7 @@ import PromptDesigner as pb
 
 myQuestion = pb.write_prompt('Question here', [list of one type of variable. Strings and ints], True)
 
-Parameters: (question, [list of choices(string or int). Only one type can be used], true/false)
+Parameters: (question, [list of choices(string or int)]. Only one type can be used], true/false)
 
 # Explanation:
 1. The first parameter is what kind of question you may want to ask
