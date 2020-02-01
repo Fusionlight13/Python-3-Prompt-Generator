@@ -16,10 +16,10 @@ Download the "PromptDesigner" file and place it into your project directory. It 
 
 # Changelog 
 
-<h2>1.0.0.0<h2>
-    <h3>- Project release</h3>
-<h2>1.2.0</h2>
-    <h3>- Added in multi question support</h3>    
+1.0.0.0
+    - Project release</h3>
+1.2.0
+    -Added in multi question support.
 
 
 # Backlog
