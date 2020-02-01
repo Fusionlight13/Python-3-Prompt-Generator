@@ -2,7 +2,6 @@ import sys
 
 
 def return_sizes(messages, options):
-    number1 = 0
     number2 = 0
     if type(messages) is list:
         number1 = len(messages)
@@ -14,14 +13,10 @@ def return_sizes(messages, options):
 
 
 def write_prompt(prompt, choices, accessType, exception_handler):
-    co = 0
-    ro = 0
-    format_arr = []
-    possibleAnswers = []
+    possible_answers = []
     number_ans = []
     return_vals = []
-    choiceLimit = len(choices)
-    currentChoiceLimit = -1
+    current_choice_limit = -1
     incremental_int = 0
     get_input = ''
     size_info = return_sizes(prompt, choices)
@@ -30,47 +25,47 @@ def write_prompt(prompt, choices, accessType, exception_handler):
         sys.exit(1)
     elif size_info[0] == size_info[1]:
         for i in range(len(prompt)):
-            currentChoiceLimit += 1
+            current_choice_limit += 1
             co = 0
             while True:
                 try:
-                    possibleAnswers.append(choices[currentChoiceLimit][co])
+                    possible_answers.append(choices[current_choice_limit][co])
                     co += 1
                 except IndexError:
                     break
             if accessType == 'String':
-                fullString = prompt[i]
-                for ans in possibleAnswers:
-                    fullString = fullString + str(' | ') + str(ans)
-                fullString = fullString + str(': ')
-                while get_input not in possibleAnswers:
-                    get_input = input(fullString)
+                full_string = prompt[i]
+                for ans in possible_answers:
+                    full_string = full_string + str(' | ') + str(ans)
+                full_string = full_string + str(': ')
+                while get_input not in possible_answers:
+                    get_input = input(full_string)
                 return_vals.append(get_input)
-                possibleAnswers.clear()
+                possible_answers.clear()
             elif accessType == 'Integer':
-                fullString = prompt[i]
+                full_string = prompt[i]
                 get_input = 0
-                for ans in possibleAnswers:
+                for ans in possible_answers:
                     incremental_int += 1
-                    fullString = fullString + str(' | ') + str('{}({})'.format(ans, incremental_int))
+                    full_string = full_string + str(' | ') + str('{}({})'.format(ans, incremental_int))
                     number_ans.append(incremental_int)
-                fullString = fullString + str(': ')
+                full_string = full_string + str(': ')
                 if exception_handler:
                         while get_input not in number_ans:
                             try:
-                                get_input = int(input(fullString))
+                                get_input = int(input(full_string))
                             except ValueError:
                                 print('Value error')
                                 get_input = 0
                                 continue
                         return_vals.append(get_input)
-                        possibleAnswers.clear()
+                        possible_answers.clear()
                         incremental_int = 0
                 elif not exception_handler:
-                    while get_input not in possibleAnswers:
-                        get_input = input(fullString)
+                    while get_input not in possible_answers:
+                        get_input = input(full_string)
                     return_vals.append(get_input)
-                    possibleAnswers.clear()
+                    possible_answers.clear()
                     incremental_int = 0
             else:
                 print('Invalid access type!')
@@ -79,7 +74,9 @@ def write_prompt(prompt, choices, accessType, exception_handler):
 
 # write_prompt(['Question?', 'Are you sure?'], [['Yes', 'no', 'Ok'], ['never', 'sure', 'I guess']], [''])
 
-
+answer = write_prompt(['Prompt_1', 'Prompt_2', 'Prompt_3'], [['yes', 'no'], ['ok', 'no'], ['sure', 'nope']],
+                      'String', False)
+print(answer)
 
 
 
