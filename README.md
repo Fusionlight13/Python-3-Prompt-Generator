@@ -1,5 +1,5 @@
-  <h1>Python-3-Prompt-Generator</h1>
-A simple library that easily generates prompts for users to answer questions.
+<h1>Python-3-Prompt-Generator</h1>
+    A simple library that easily generates prompts for users to answer questions.
 
 # Example
 import PromptDesigner as pb
@@ -9,7 +9,7 @@ myQuestion = write_prompt(['Prompt_1', 'Prompt_2', 'Prompt_3'], [['Yes', 'no'], 
 Parameters: write_prompt([prompt], [choices], [accessType], [exception_handler])
 
 # Explanation:
-1. 
+</h2>1.something</h2> 
 
 # Installation
 Download the "PromptDesigner" file and place it into your project directory. It must be added locally into your project because a way has not been found for adding it in globally.
