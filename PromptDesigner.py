@@ -11,7 +11,7 @@ def return_sizes(messages, options):
         number1 = len(messages)
         for a in options:
             number2 += 1
-        return number1, number1
+        return number1, number2
     else:
         return 0, 0
 
@@ -23,7 +23,7 @@ def write_prompt(prompt, choices, exception_handler):
     choiceLimit = len(choices)
     currentChoiceLimit = -1
     size_info = return_sizes(prompt, choices)
-    if size_info[0] == 0 and size_info[1] == 0:
+    if size_info[0] == 0 and size_info[1] == 0 or size_info[0] is not size_info[1]:
         print('Sizes do not match!')
         sys.exit(1)
     elif size_info[0] == size_info[1]:
@@ -32,18 +32,16 @@ def write_prompt(prompt, choices, exception_handler):
             co = 0
             while True:
                 try:
-                    print((choices[currentChoiceLimit][co]))
+                    print(choices[currentChoiceLimit][co])
                     co += 1
                 except IndexError:
                     break
 
             print(prompt[i])
 
-            currentChoiceLimit = -1
-
 
 # write_prompt(['Question?', 'Are you sure?'], [['Yes', 'no', 'Ok'], ['never', 'sure', 'I guess']], [''])
-write_prompt(['Question', 'Yes'], [['one', 'two']], True)
+write_prompt(['Do you like blue?', 'Do you like purple?'], [['yes', 'no'], ['I love it', 'I hate it']], True)
 
 
 
