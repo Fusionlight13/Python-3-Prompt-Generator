@@ -14,10 +14,12 @@ Parameters: write_prompt([prompt], [choices], [accessType], [exception_handler])
 # Installation
 Download the "PromptDesigner" file and place it into your project directory. It must be added locally into your project because a way has not been found for adding it in globally.
 
-# Changelog 1.0.0.0
+# Changelog 
 
 <h2>1.0.0.0<h2>
-  - Project release
+    <h3>- Project release</h3>
+<h2>1.2.0</h2>
+    <h3>- Added in multi question support</h3>    
 
 
 # Backlog
