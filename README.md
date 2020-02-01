@@ -1,4 +1,4 @@
-<h1>Python-3-Prompt-Generator</h1>
+<h1>Python 3 Prompt Generator</h1>
     A simple library that easily generates prompts for users to answer questions.
 
 # Example
@@ -18,6 +18,7 @@ Download the "PromptDesigner" file and place it into your project directory. It 
 
 1.0.0.0
     - Project release</h3>
+
 1.2.0
     -Added in multi question support.
 
