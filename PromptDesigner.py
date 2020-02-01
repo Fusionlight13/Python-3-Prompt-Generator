@@ -76,8 +76,8 @@ def write_prompt(prompt, choices, accessType, exception_handler):
                 print('Invalid access type!')
         return return_vals
 
+
 # write_prompt(['Question?', 'Are you sure?'], [['Yes', 'no', 'Ok'], ['never', 'sure', 'I guess']], [''])
-write_prompt(['Do you like blue?', 'Do you like purple?'], [['yes', 'no'], ['I love it', 'I hate it']], 'Integer', True)
 
 
 
