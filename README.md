@@ -4,7 +4,7 @@
 # Example
 import PromptDesigner as pb
 
-myQuestion = write_prompt(['Prompt_1', 'Prompt_2', 'Prompt_3'], [['Yes', 'no'], ['ok', 'no'], ['sure', 'nope']], 'String', False)
+myQuestion = pb.write_prompt(['Prompt_1', 'Prompt_2', 'Prompt_3'], [['Yes', 'no'], ['ok', 'no'], ['sure', 'nope']], 'String', False)
 
 Parameters: write_prompt([prompt], [choices], [accessType], [exception_handler])
 
