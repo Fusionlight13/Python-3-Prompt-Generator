@@ -19,7 +19,7 @@ Download the "PromptDesigner" file and place it into your project directory. It 
 1.0.0.0
     - Project release</h3>
 
-1.2.0
+1.2.0.0
     - Added in multi question support.
 
 
