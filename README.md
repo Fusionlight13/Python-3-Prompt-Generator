@@ -1,5 +1,5 @@
 <h1>Python 3 Prompt Generator</h1>
-    A simple library that easily generates prompts for users to answer questions.
+    A simple library that generates prompts for users
 
 # Example
 <h2>import PromptDesigner as pb</h2>
