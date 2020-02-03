@@ -23,5 +23,5 @@ myQuestion = pb.write_prompt(prompt=['', ''], choices=[['choice_1', 'choice_2',]
 
 # Backlog
 
-~~- Add functionality for more questions to be asked in one call compared to the usual one.
+~~- Add functionality for several questions to be asked in one call compared to one.
 
