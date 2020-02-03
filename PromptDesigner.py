@@ -12,7 +12,7 @@ def return_sizes(messages, options):
         return 0, 0
 
 
-def write_prompt(prompt, choices, accessType, exception_handler):
+def write_prompt(prompt, choices, access_type ='String', exception_handler=False):
     possible_answers = []
     number_ans = []
     return_vals = []
@@ -33,7 +33,7 @@ def write_prompt(prompt, choices, accessType, exception_handler):
                     co += 1
                 except IndexError:
                     break
-            if accessType == 'String':
+            if access_type == 'String':
                 full_string = prompt[i]
                 for ans in possible_answers:
                     full_string = full_string + str(' | ') + str(ans)
@@ -42,7 +42,7 @@ def write_prompt(prompt, choices, accessType, exception_handler):
                     get_input = input(full_string)
                 return_vals.append(get_input)
                 possible_answers.clear()
-            elif accessType == 'Integer':
+            elif access_type == 'Integer':
                 full_string = prompt[i]
                 get_input = 0
                 for ans in possible_answers:
@@ -74,8 +74,7 @@ def write_prompt(prompt, choices, accessType, exception_handler):
 
 # write_prompt(['Question?', 'Are you sure?'], [['Yes', 'no', 'Ok'], ['never', 'sure', 'I guess']], [''])
 
-answer = write_prompt(['Prompt_1', 'Prompt_2', 'Prompt_3'], [['yes', 'no'], ['ok', 'no'], ['sure', 'nope']],
-                      'String', False)
+answer = write_prompt(prompt=['Question_1', 'Question_2'], choices=[['Yes', 'No'], ['Ok', 'Nope']])
 print(answer)
 
 
