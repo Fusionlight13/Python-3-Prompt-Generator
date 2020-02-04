@@ -29,13 +29,12 @@ Keyword types:
 # Keywords explained:
 
 
-Prompt:
-Has to be a list. The length can be anywhere between 1 to however much. 
-Choices: Must be equal to the questions asked. An infinite amount of choices per question can be used though. No_choices overrides this but must be equal to None.
-access_type: String allows you to answer questions as normal with a string according to your choices allowed.
-access_type cont'd: Integer allows you to pick a choice corresponding with the int value assigned.
-exception_handler: Only useful for ints. Catches value errors. Option automatically set to false and cannot be used when access_type 'String' is on.
-no_choices: Lets you answer any question without being restricted to choices available. if access_type is 'String', only string inputs will be allowed.
+<em>Prompt:</em> Has to be a list. The length can be anywhere between 1 to however much. 
+<em>Choices:</em> Must be equal to the questions asked. An infinite amount of choices per question can be used though. No_choices overrides this but must be equal to None.
+<em>access_type</em>: String allows you to answer questions as normal with a string according to your choices allowed.
+<em>access_type cont'd:</em> Integer allows you to pick a choice corresponding with the int value assigned.
+<em>exception_handler:</em> Only useful for ints. Catches value errors. Option automatically set to false and cannot be used when access_type 'String' is on.
+<em>no_choices:</em> Lets you answer any question without being restricted to choices available. if access_type is 'String', only string inputs will be allowed.
 if access_type is 'Integer', only integer inputs will be allowed. The exception_handler is optional with this mode.
 
 Note: if no choices are needed, use 'choices=None' instead of leaving it empty. Optionally you can use 'choices=[[]]', whichever is easier.
