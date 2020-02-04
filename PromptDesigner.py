@@ -12,7 +12,8 @@ def return_sizes(messages, options):
         return 0, 0
 
 
-def write_prompt(prompt, choices, access_type='String', exception_handler=False, no_choices=False):
+def write_prompt(prompt, choices, access_type='String', exception_handler=False, no_choices=False,
+                 list_kill=('/k', 0000)):
     possible_answers = []
     number_ans = []
     return_vals = []
@@ -86,19 +87,49 @@ def write_prompt(prompt, choices, access_type='String', exception_handler=False,
             return return_vals
         elif exception_handler:
             get_input = 0
-            for l in prompt:
+            list_length = len(prompt)
+            current_list_length = 0
+            while current_list_length is not list_length:
                 try:
-                    get_input = int(input(l + ' '))
+                    get_input = int(input(prompt[current_list_length] + str(' ')))
+                    return_vals.append(get_input)
+                    current_list_length += 1
+                except ValueError:
+                    print('Value error!')
+            return return_vals
+    elif no_choices and access_type == 'ListStr':
+        get_input = ''
+        while list_kill[0] not in get_input:
+            get_input = input(prompt[0] + ': ')
+            return_vals.append(get_input)
+        if list_kill[0] in return_vals:
+            return_vals.remove(list_kill[0])
+        return return_vals
+    elif no_choices and access_type == 'ListInt':
+        get_input = 0
+        if exception_handler:
+            while list_kill[1] not in get_input:
+                try:
+                    get_input = int(input(prompt[0] + ': '))
                     return_vals.append(get_input)
                 except ValueError:
                     print('Value error!')
+                if list_kill[1] in return_vals:
+                    return_vals.remove(list_kill[1])
+                return return_vals
+        elif not exception_handler:
+            while list_kill[1] not in get_input:
+                get_input = int(input(prompt[0] + ': '))
+                return_vals.append(get_input)
+            if list_kill[1] in return_vals:
+                return_vals.remove(list_kill[1])
             return return_vals
 
 
 # write_prompt(['Question?', 'Are you sure?'], [['Yes', 'no', 'Ok'], ['never', 'sure', 'I guess']], [''])
-
-answer = write_prompt(prompt=['Question_1', 'Question_2'], choices=[['Yes', 'No'], ['Ok', 'Nope']])
-print(answer)
+if __name__ == '__main__':
+    answer = write_prompt(prompt=['Question_1', 'Question_2'], choices=[['Yes', 'No'], ['Ok', 'Nope']])
+    print(answer)
 
 
 
