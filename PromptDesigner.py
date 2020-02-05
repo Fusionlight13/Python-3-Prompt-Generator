@@ -12,8 +12,8 @@ def return_sizes(messages, options):
         return 0, 0
 
 
-def write_prompt(prompt, choices, access_type='String', exception_handler=False, no_choices=False,
-                 list_kill=('/k', 0000)):
+def write_prompt(prompt, choices, access_type='String', list_kill=('/k', 4444), exception_handler=False,
+                 no_choices=False):
     possible_answers = []
     number_ans = []
     return_vals = []
@@ -108,7 +108,7 @@ def write_prompt(prompt, choices, access_type='String', exception_handler=False,
     elif no_choices and access_type == 'ListInt':
         get_input = 0
         if exception_handler:
-            while list_kill[1] not in get_input:
+            while list_kill[1] != get_input:
                 try:
                     get_input = int(input(prompt[0] + ': '))
                     return_vals.append(get_input)
@@ -118,7 +118,7 @@ def write_prompt(prompt, choices, access_type='String', exception_handler=False,
                     return_vals.remove(list_kill[1])
                 return return_vals
         elif not exception_handler:
-            while list_kill[1] not in get_input:
+            while list_kill[1] != get_input:
                 get_input = int(input(prompt[0] + ': '))
                 return_vals.append(get_input)
             if list_kill[1] in return_vals:
@@ -128,8 +128,9 @@ def write_prompt(prompt, choices, access_type='String', exception_handler=False,
 
 # write_prompt(['Question?', 'Are you sure?'], [['Yes', 'no', 'Ok'], ['never', 'sure', 'I guess']], [''])
 if __name__ == '__main__':
-    answer = write_prompt(prompt=['Question_1', 'Question_2'], choices=[['Yes', 'No'], ['Ok', 'Nope']])
-    print(answer)
+    fav_songs = write_prompt(prompt=['What is your favorite songs?'],
+                             choices=None, access_type='ListInt', no_choices=True)
+    print(fav_songs)
 
 
 
